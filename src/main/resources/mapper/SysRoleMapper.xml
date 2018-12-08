@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.doraro.permission_fast.mapper.SysRoleMapper">
+
+
+
+    <select id="getRoleNamesByUserId" resultType="java.lang.String">
+        SELECT
+            a.role_name
+        FROM sys_role a,sys_user_role c
+        WHERE a.role_id = c.role_id
+              AND c.user_id = #{userId}
+    </select>
+</mapper>

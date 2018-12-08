@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.doraro.permission_fast.mapper.SysModuleMapper">
+
+
+
+
+    <select id="getPermByUserId" resultType="java.lang.String">
+        select m.perms from sys_user_role ur
+            LEFT JOIN sys_module_role rm on ur.role_id = rm.role_id
+            LEFT JOIN sys_module m on rm.module_id = m.module_id
+        where ur.user_id = #{userId}
+
+    </select>
+</mapper>
