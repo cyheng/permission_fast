@@ -48,7 +48,7 @@ public class OauthRealm  extends AuthorizingRealm{
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
         final Oauth2Token oauth2Token = (Oauth2Token) token;
-        final java.lang.String realToken = oauth2Token.getToken();
+        final String realToken = oauth2Token.getToken();
         final RedisKeys redisKeys = RedisKeys.SYS_TOKEN.build(realToken);
         final SysUser user = redisUtils.get(redisKeys.getRealKey(), SysUser.class, redisKeys.getExpireTime());
         if (user == null){

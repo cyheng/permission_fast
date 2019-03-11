@@ -43,6 +43,11 @@ public class ShiroConfig {
         filterMap.addPathDefinition("/**", "oauth2");
         return filterMap;
     }
+
+    /**
+     * AOP 需要使用
+     * @return
+     */
     @Bean
     public DefaultAdvisorAutoProxyCreator defaultAdvisorAutoProxyCreator() {
         DefaultAdvisorAutoProxyCreator proxyCreator = new DefaultAdvisorAutoProxyCreator();

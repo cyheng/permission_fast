@@ -12,6 +12,7 @@ import com.wf.captcha.Captcha;
 import com.wf.captcha.GifCaptcha;
 import com.wf.captcha.utils.CaptchaUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,7 +32,7 @@ public class SysLoginController {
     private ISysUserService userService;
     @Autowired
     private SysTokenService tokenService;
-    @GetMapping("captcha.jpg")
+    @GetMapping(value = "captcha.jpg",produces = MediaType.IMAGE_GIF_VALUE)
     public void captcha(HttpServletResponse response, String uuid) throws IOException {
         CaptchaUtil.setHeader(response);
         GifCaptcha gifCaptcha = new GifCaptcha(130, 48, 5);
