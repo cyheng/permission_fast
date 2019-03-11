@@ -32,7 +32,7 @@ public class SysLoginController {
     private ISysUserService userService;
     @Autowired
     private SysTokenService tokenService;
-    @GetMapping(value = "captcha.jpg",produces = MediaType.IMAGE_GIF_VALUE)
+    @GetMapping(value = "captcha.jpg",produces = MediaType.IMAGE_JPEG_VALUE)
     public void captcha(HttpServletResponse response, String uuid) throws IOException {
         CaptchaUtil.setHeader(response);
         GifCaptcha gifCaptcha = new GifCaptcha(130, 48, 5);
